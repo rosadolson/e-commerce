@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './header/Header'
 import Main from './Main'
 import Footer from './Footer'
+import PropTypes from 'prop-types'
 
 const styles = {
   container: {
@@ -12,13 +13,17 @@ const styles = {
   }
 }
 
-const Layout = () =>
+const Layout = ({ domainData }) =>
   <div>
     <Header />
     <div style={styles.container}>
-      <Main />
+      <Main domainData={domainData} />
       <Footer />
     </div>
   </div>
+
+Layout.propTypes = {
+  domainData: PropTypes.object.isRequired
+}
 
 export default Layout
