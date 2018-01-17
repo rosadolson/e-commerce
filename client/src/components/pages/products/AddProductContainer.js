@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import AddProductForm from './AddProductForm'
 import $ from 'jquery'
+import PropTypes from 'prop-types'
+import {
+  withRouter
+} from 'react-router-dom'
 
 class AddProductContainer extends Component {
   state = {
@@ -8,6 +12,11 @@ class AddProductContainer extends Component {
     price: undefined,
     img: undefined,
     category: undefined
+  }
+
+  static propTypes = {
+    history: PropTypes.object.isRequired,
+    domainData: PropTypes.object.isRequired
   }
 
   onChangeHandler = (e) => this.setState({ [e.target.id]: e.target.value })
@@ -20,7 +29,9 @@ class AddProductContainer extends Component {
       method: 'POST',
       data: newProduct
     }).done((response) => {
-      console.log('Submit Product:', response)
+      // console.log('Submit Product:', response)
+      this.props.domainData.getAllProducts()
+      this.props.history.push('/products')
     })
   }
 
@@ -33,4 +44,4 @@ class AddProductContainer extends Component {
   }
 }
 
-export default AddProductContainer
+export default withRouter(AddProductContainer)

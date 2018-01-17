@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const styles = {
   link: {
-    color: 'black',
+    color: 'white',
     textDecoration: 'none',
     padding: '25px',
     fontFamily: 'Roboto, sans-serif'

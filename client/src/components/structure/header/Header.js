@@ -3,9 +3,12 @@ import NavItem from './NavItem'
 
 const styles = {
   container: {
-    margin: '20px',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#6C7A89',
+    width: '100%',
+    height: 50
   }
 }
 
