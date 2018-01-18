@@ -7,7 +7,8 @@ import PropTypes from 'prop-types'
 
 const styles = {
   container: {
-    marginTop: 30
+    marginTop: 30,
+    marginBottom: 30
   },
   formContainer: {
     padding: 45
@@ -21,7 +22,7 @@ const styles = {
 
 const AddProductForm = ({ submitProduct, onChangeHandler, name, price, img, category }) =>
   <div style={styles.container}>
-    <Card>
+    <Card raised>
       <form style={styles.formContainer}>
         <Typography type='display1' gutterBottom> Add Product </Typography>
         <div>
