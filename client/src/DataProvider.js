@@ -29,23 +29,46 @@ class DataProvider extends Component {
         this.methods.getAllProducts()
       })
     },
-    addNewUser: (user) => {
+    addNewUser: (user) =>
       UserApi.signupUser(user)
         .then(user => {
+          // console.log('Add New User:', user)
           this.setState({ user: user })
           return user
+        }),
+    loginUser: (email, password) =>
+      UserApi.loginUser(email, password)
+        .then(user => {
+          // console.log(user)
+          this.setState({ user: user })
+          return user
+        }),
+    getUser: () =>
+      UserApi.getUser()
+        .then(user => {
+          // console.log('FOUND USER', user)
+          this.setState({ user: user })
+          return user
+        }),
+    logoutUser: () =>
+      UserApi.logoutUser()
+        .then(user => {
+          console.log('USER LOGGED OUT', user)
+          this.setState({ user: null })
         })
-    }
   }
 
   componentDidMount () {
     this.methods.getAllProducts()
+    this.methods.getUser()
   }
 
   render () {
     const domainData = {
       ...this.state,
-      ...this.methods
+      ...this.methods,
+      loggedIn: this.state.user !== null,
+      loggedOut: this.state.user === null
     }
     return (
       <div>

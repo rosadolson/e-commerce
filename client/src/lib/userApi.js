@@ -18,6 +18,7 @@ const ajaxRequest = (uri, method, body) => {
 
 const handleErrors = response => {
   if (!response.ok) {
+    console.log('an error was found')
     return response.json()
       .then(({message, data}) => {
         const err = Error(message)

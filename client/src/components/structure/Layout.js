@@ -15,7 +15,7 @@ const styles = {
 
 const Layout = ({ domainData }) =>
   <div>
-    <Header />
+    <Header domainData={domainData} />
     <div style={styles.container}>
       <Main domainData={domainData} />
       <Footer />

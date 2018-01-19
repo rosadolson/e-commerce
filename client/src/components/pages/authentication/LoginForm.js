@@ -17,7 +17,7 @@ const styles = {
   buttonContainer: {
     display: 'flex',
     justifyContent: 'center',
-    padding: 10
+    padding: 20
   },
   link: {
     color: 'black',
@@ -25,18 +25,12 @@ const styles = {
   }
 }
 
-const SignUpForm = ({ onSubmit, onChangeHandler }) => {
+const LoginForm = ({ onSubmit, onChangeHandler }) => {
   return (
     <div style={styles.container}>
       <Card raised>
         <form style={styles.formContainer}>
-          <Typography type='display1' gutterBottom> Sign Up </Typography>
-          <div>
-            <TextField onChange={onChangeHandler} id='firstName' label=' First Name' />
-          </div>
-          <div>
-            <TextField onChange={onChangeHandler} id='lastName' label='Last Name' />
-          </div>
+          <Typography type='display1' gutterBottom> Login </Typography>
           <div>
             <TextField onChange={onChangeHandler} id='email' label='Email' />
           </div>
@@ -44,11 +38,11 @@ const SignUpForm = ({ onSubmit, onChangeHandler }) => {
             <TextField onChange={onChangeHandler} id='password' label='Password' />
           </div>
           <div style={styles.buttonContainer}>
-            <Button raised onClick={onSubmit}>Sign Up</Button>
+            <Button raised onClick={onSubmit}>Login</Button>
           </div>
           <div style={styles.buttonContainer}>
             <Button raised>
-              <Link style={styles.link} to='/login'>Login</Link>
+              <Link style={styles.link} to='/sign-up'>Sign Up</Link>
             </Button>
           </div>
         </form>
@@ -57,9 +51,9 @@ const SignUpForm = ({ onSubmit, onChangeHandler }) => {
   )
 }
 
-SignUpForm.propTypes = {
+LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChangeHandler: PropTypes.func.isRequired
 }
 
-export default SignUpForm
+export default LoginForm
