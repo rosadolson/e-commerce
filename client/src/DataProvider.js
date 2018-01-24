@@ -53,7 +53,7 @@ class DataProvider extends Component {
     logoutUser: () =>
       UserApi.logoutUser()
         .then(user => {
-          console.log('USER LOGGED OUT', user)
+          // console.log('USER LOGGED OUT', user)
           this.setState({ user: null })
         })
   }
@@ -67,8 +67,8 @@ class DataProvider extends Component {
     const domainData = {
       ...this.state,
       ...this.methods,
-      loggedIn: this.state.user !== null,
-      loggedOut: this.state.user === null
+      loggedIn: this.state.user != null,
+      loggedOut: this.state.user == null
     }
     return (
       <div>

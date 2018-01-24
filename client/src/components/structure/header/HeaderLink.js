@@ -14,7 +14,7 @@ const HeaderLink = ({ onClick, children }) =>
   <a style={styles.link} onClick={onClick}>{children}</a>
 
 HeaderLink.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   children: PropTypes.node.isRequired
 }
 
