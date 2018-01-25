@@ -8,6 +8,7 @@ const ProductsContainer = ({ domainData }) => {
       <ProductList
         products={domainData.products}
         deleteProduct={domainData.deleteProduct}
+        addItemToCart={domainData.addItemToCart}
       />
     </div>
   )

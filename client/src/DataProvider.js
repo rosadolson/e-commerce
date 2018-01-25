@@ -55,7 +55,21 @@ class DataProvider extends Component {
         .then(user => {
           // console.log('USER LOGGED OUT', user)
           this.setState({ user: null })
+        }),
+    addItemToCart: (productId) => {
+      if (this.state.user != null) {
+        $.ajax({
+          url: `/api/users/cart/${this.state.user._id}`,
+          method: 'PUT',
+          data: {product_id: productId}
+        }).done((response) => {
+          console.log(response)
+          this.methods.getUser()
         })
+      } else {
+        console.log('User must be logged in.')
+      }
+    }
   }
 
   componentDidMount () {

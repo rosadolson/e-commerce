@@ -30,7 +30,7 @@ Router.route('/')
 
 Router.route('/cart/:userId')
   .put((req, res) => {
-    // console.log(req.params)
+    // console.log(req.body)
     const userId = req.params.userId
     User.findById({_id: userId}, (err, user) => {
       if (err) {

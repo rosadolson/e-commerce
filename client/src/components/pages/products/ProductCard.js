@@ -19,7 +19,7 @@ const styles = {
   }
 }
 
-const ProductCard = ({ _id, name, price, img, category, deleteProduct }) => {
+const ProductCard = ({ _id, name, price, img, category, deleteProduct, addItemToCart }) => {
   return (
     <div>
       <Card style={styles.card}>
@@ -38,6 +38,7 @@ const ProductCard = ({ _id, name, price, img, category, deleteProduct }) => {
           <Button raised color='primary'>
             <Link style={styles.link} to={`/view-product/${_id}`}>View</Link>
           </Button>
+          <Button raised color='primary' onClick={() => addItemToCart(_id)}>Add To Cart</Button>
         </CardActions>
       </Card>
     </div>
@@ -50,7 +51,8 @@ ProductCard.propTypes = {
   price: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  deleteProduct: PropTypes.func.isRequired
+  deleteProduct: PropTypes.func.isRequired,
+  addItemToCart: PropTypes.func.isRequired
 }
 
 export default ProductCard

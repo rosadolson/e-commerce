@@ -23,8 +23,10 @@ const Header = ({ domainData }) =>
       <NavItem to='/add-product'> Add Products </NavItem>
       { domainData.loggedOut ? <NavItem to='/sign-up'>Sign Up</NavItem> : null }
       { domainData.loggedOut ? <NavItem to='/login'>Login</NavItem> : null }
+      { domainData.loggedIn ? <NavItem to='/cart'>Cart</NavItem> : null}
       { domainData.loggedIn ? <HeaderLink onClick={domainData.logoutUser}>Logout</HeaderLink> : null }
       { domainData.loggedIn ? <HeaderLink>{domainData.user.local.email}</HeaderLink> : null}
+
     </nav>
   </header>
 
