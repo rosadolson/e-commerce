@@ -7,7 +7,8 @@ class DataProvider extends Component {
   state = {
     isLoaded: false,
     products: [],
-    user: null
+    user: null,
+    cartReady: false
   }
 
   methods = {
@@ -40,14 +41,14 @@ class DataProvider extends Component {
       UserApi.loginUser(email, password)
         .then(user => {
           // console.log(user)
-          this.setState({ user: user })
+          this.methods.getUser(user)
           return user
         }),
-    getUser: () =>
-      UserApi.getUser()
+    getUser: (user) =>
+      UserApi.getUser(user._id)
         .then(user => {
           // console.log('FOUND USER', user)
-          this.setState({ user: user })
+          this.setState({ user: user, cartReady: true })
           return user
         }),
     logoutUser: () =>
@@ -63,8 +64,7 @@ class DataProvider extends Component {
           method: 'PUT',
           data: {product_id: productId}
         }).done((response) => {
-          console.log(response)
-          this.methods.getUser()
+          this.methods.getUser(this.state.user)
         })
       } else {
         console.log('User must be logged in.')
@@ -74,7 +74,7 @@ class DataProvider extends Component {
 
   componentDidMount () {
     this.methods.getAllProducts()
-    this.methods.getUser()
+    // this.methods.getUser()
   }
 
   render () {
