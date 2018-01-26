@@ -69,6 +69,21 @@ class DataProvider extends Component {
       } else {
         console.log('User must be logged in.')
       }
+    },
+    removeItemFromCart: (productId) => {
+      if (this.state.user != null) {
+        $.ajax({
+          url: `/api/users/remove-from-cart/${this.state.user._id}`,
+          method: 'PUT',
+          data: {product_id: productId}
+        }).then((response) => {
+          this.methods.getUser(this.state.user)
+        }).catch((error) => {
+          console.log('Could not remove item.', error)
+        })
+      } else {
+        console.log('User must be logged in.')
+      }
     }
   }
 

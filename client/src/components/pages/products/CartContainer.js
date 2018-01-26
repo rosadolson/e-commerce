@@ -7,7 +7,11 @@ const CartContainer = ({ domainData }) => {
     <div>
       {
         domainData.user != null
-          ? <CartList cartProducts={domainData.user.cart} cartReady={domainData.cartReady} />
+          ? <CartList
+            cartProducts={domainData.user.cart}
+            cartReady={domainData.cartReady}
+            removeItemFromCart={domainData.removeItemFromCart}
+          />
           : 'User Not Found'
       }
     </div>
