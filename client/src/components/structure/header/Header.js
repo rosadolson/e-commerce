@@ -24,6 +24,7 @@ const Header = ({ domainData }) =>
       { domainData.loggedOut ? <NavItem to='/sign-up'>Sign Up</NavItem> : null }
       { domainData.loggedOut ? <NavItem to='/login'>Login</NavItem> : null }
       { domainData.loggedIn ? <NavItem to='/cart'>Cart</NavItem> : null}
+      { domainData.loggedIn ? <NavItem to='/orders'>Orders</NavItem> : null}
       { domainData.loggedIn ? <HeaderLink onClick={domainData.logoutUser}>Logout</HeaderLink> : null }
       { domainData.loggedIn ? <HeaderLink>{domainData.user.local.email}</HeaderLink> : null}
 

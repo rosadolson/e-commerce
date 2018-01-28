@@ -8,7 +8,8 @@ import AddProductContainer from '../pages/products/AddProductContainer'
 import ViewProductContainer from '../pages/products/ViewProductContainer'
 import SignUpContainer from '../pages/authentication/SignUpContainer'
 import LoginContainer from '../pages/authentication/LoginContainer'
-import CartContainer from '../pages/products/CartContainer'
+import CartContainer from '../pages/products/cart/CartContainer'
+import OrdersContainer from '../pages/products/orders/OrdersContainer'
 
 const Main = ({ domainData }) =>
   <main>
@@ -20,6 +21,7 @@ const Main = ({ domainData }) =>
     <Route path='/sign-up'render={() => <SignUpContainer domainData={domainData} />} />
     <Route path='/login'render={() => <LoginContainer domainData={domainData} />} />
     <Route path='/cart' render={() => <CartContainer domainData={domainData} />} />
+    <Route path='/orders' render={() => <OrdersContainer domainData={domainData} />} />
   </main>
 
 Main.propTypes = {
