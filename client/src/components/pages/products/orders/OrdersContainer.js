@@ -1,13 +1,21 @@
-import React, {Component} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
+import OrdersList from './OrdersList'
 
-class OrdersContainer extends Component {
-  render () {
-    return (
-      <div>
-        <p>This is the orders container!</p>
-      </div>
-    )
-  }
+const OrdersContainer = ({ domainData }) => {
+  return (
+    <div>
+      {
+        domainData.user != null
+          ? <OrdersList orders={domainData.orders} />
+          : 'User Not Found'
+      }
+    </div>
+  )
+}
+
+OrdersContainer.propTypes = {
+  domainData: PropTypes.object.isRequired
 }
 
 export default OrdersContainer

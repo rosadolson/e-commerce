@@ -8,7 +8,8 @@ class DataProvider extends Component {
     isLoaded: false,
     products: [],
     user: null,
-    cartReady: false
+    cartReady: false,
+    orders: undefined
   }
 
   methods = {
@@ -84,6 +85,14 @@ class DataProvider extends Component {
       } else {
         console.log('User must be logged in.')
       }
+    },
+    getOrders: () => {
+      $.ajax({
+        url: '/api/orders',
+        method: 'GET'
+      }).done((response) => {
+        this.setState({ orders: response.data })
+      })
     }
   }
 
